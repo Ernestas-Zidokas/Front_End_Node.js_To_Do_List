@@ -14,6 +14,10 @@ let ToDoSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 let ToDoModel = mongoose.model('ToDoItems', ToDoSchema);
