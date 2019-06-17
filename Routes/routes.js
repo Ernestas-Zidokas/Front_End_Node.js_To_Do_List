@@ -7,8 +7,11 @@ router
   .route('/toDoItem')
   .post(middleware.authenticate, toDoController.createToDoItem)
   .get(middleware.authenticate, toDoController.getAllItems);
-router.route('/deleteitem').post(middleware.authenticate, toDoController.deleteItem);
+router.route('/deleteItem').post(middleware.authenticate, toDoController.deleteItem);
 router.route('/markAllChecked').get(middleware.authenticate, toDoController.markAllChecked);
+router.route('/deleteItemById/:id/').delete(middleware.authenticate, toDoController.deleteItemById);
+router.route('/toogleItem/:id/').put(middleware.authenticate, toDoController.toogleItem);
+router.route('/getItem/:id/').get(middleware.authenticate, toDoController.getItem);
 
 router.route('/register').post(userController.register);
 router.route('/getUser').get(userController.getUser);

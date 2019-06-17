@@ -24,7 +24,7 @@ let login = (request, res) => {
   UserModel.findOne({ email: data.email })
     .then(user => {
       if (!user) {
-        response.json('No user with this email');
+        res.json('No user with this email');
         return;
       }
       bcrypt.compare(data.password, user.password, (error, response) => {
